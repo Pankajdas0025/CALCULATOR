@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+    
+
+.calculator {
+    margin: 5% 40%;
+    background-color:darkblue;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow:2px 2px 4px black;
+    width: 400px;
+}
+
+#display {
+    width: 95%;
+    height: 50px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    text-align: right;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    background-color: #eee;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+button {
+    font-size: 1.8rem;
+    padding: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: skyblue;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #777;
+}
+
+button:nth-child(16) {
+    grid-column: span 2;
+    background-color: #f90;
+}
+
+button:nth-child(16):hover {
+    background-color: #0f0;
+}
+@media only screen and (max-width:430px) 
+{
+    .calculator {
+    position: absolute;
+    margin-left: 0px;
+    background-color:blue;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow:2px 2px 4px black;
+
+}
+
+}
+
+    </style>
+    <script type="text/javascript">
+// Get input values through user 
+    function Userinput(value) {
+    document.getElementById("display").value += value;
+}
+// Delete all input
+
+    function Alldelete() {
+    document.getElementById('display').value = '';
+}
+// delete by one from last
+function deleteLast() {
+    const currentDisplay = document.getElementById('display').value;
+    document.getElementById('display').value = currentDisplay.slice(0, -1);
+}
+
+function calculate() {
+    const expression = document.getElementById('display').value;
+    try {
+        const result = eval(expression);
+        document.getElementById('display').value = result;
+    } catch {
+        document.getElementById('display').value = 'Error';
+    }
+}
+
+    </script>
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" disabled>
+        <div class="buttons">
+            <button onclick="Alldelete()">C</button>
+            <button onclick="deleteLast()">DEL</button>
+            <button onclick="Userinput('/')">/</button>
+            <button onclick="Userinput('*')">*</button>
+            <button onclick="Userinput('7')">7</button>
+            <button onclick="Userinput('8')">8</button>
+            <button onclick="Userinput('9')">9</button>
+            <button onclick="Userinput('-')">-</button>
+            <button onclick="Userinput('4')">4</button>
+            <button onclick="Userinput('5')">5</button>
+            <button onclick="Userinput('6')">6</button>
+            <button onclick="Userinput('+')">+</button>
+            <button onclick="Userinput('1')">1</button>
+            <button onclick="Userinput('2')">2</button>
+            <button onclick="Userinput('3')">3</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="Userinput('0')">0</button>
+            <button onclick="Userinput('.')">.</button>
+        </div>
+    </div>
+    
+ 
+</body>
+</html>
