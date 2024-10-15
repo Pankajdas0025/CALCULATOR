@@ -1,3 +1,3 @@
 # CALCULATOR
 
-This is a 2nd given by CODSOFT as a webdevelopment internship
+This is 2nd task given by CODSOFT as a webdevelopment internship
